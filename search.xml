@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F10%2F02%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[数据库mysql 安装初始化后更改 root 密码]]></title>
     <url>%2F2019%2F10%2F02%2F%E6%95%B0%E6%8D%AE%E5%BA%93mysql-%E5%AE%89%E8%A3%85%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%8E%E6%9B%B4%E6%94%B9-root-%E5%AF%86%E7%A0%81%2F</url>
     <content type="text"><![CDATA[mysql 更改 root 密码 环境 ： windows 10mysql：mysql-8.0.12-winx64 在初始化 mysql 后 启动 sql 服务 准备进入 mysql 发现密码不对，便准备重置初始密码 首先 在配置文件（my.ini）中，将密码验证跳过 打开文件 写入命令 1234之后进入 mysql, 不输入密码，直接回车 &amp;gt;&amp;gt;&amp;gt;&amp;gt; mysql -u root -p 切换到mysql 数据库 &amp;gt;&amp;gt;&amp;gt;&amp;gt; use mysql 然后执行，修改密码&gt;&gt;&gt;ALTER USER &#39;root&#39;@&#39;localhost&#39;IDENTIFIED BY &#39;你的密码&#39; ** 然后注释掉 my.ini 中 刚刚加的 密码跳过 代码，就完成了 **]]></content>
