@@ -2,6 +2,17 @@
 <search>
   <entry>
     <title><![CDATA[数据库mysql 安装初始化后更改 root 密码]]></title>
+    <url>%2F2019%2F10%2F02%2FDjango%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[让 django 在服务器挂起执行，不中断 在 服务器中启动 django 通常是 python python manage.py runserver 0.0.0.0:8000 但是离开 ssh 连接的窗口 程序通常也会被终止，以下有两种 方法挂起执行 以 nohup 不挂断执行 nohup python python manage.py runserver 0.0.0.0:8000 &amp; 启动后 还会在当前目录产生 nohup.log 相当于日志记录的作用 screen 此方法针对，nohup 启动的项目 无法以 IP：Port 的方式访问api，也是更高级的用法 先检查是否安装了 screen 123&gt;&gt;&gt;screen -S 名称 如果成功跳转到窗口 证明已安装，终端报错则，进行安装&gt;&gt;&gt;sudo apt install screen 安装之后 就以 创建新screen 并且执行命令的方式启动如&gt;&gt;&gt;screen -S test python hello.py 但是，有时候，我们的操作不仅仅这么简单，需要跳转路径且切换虚拟环境等等，那么，就先写一个shell 脚本，帮助我们只用一行完成所有操作如 1234cd /home/tangsong/ #切换路径 source venvo/bin/activate # 激活虚拟环境 ps：没有则跳过cd LetGo/python3 manage.py runserver 0.0.0.0:9000 # 启动项目 然后 用screen 命令启动 screen -S test ./start.sh注意 ： start.sh 启动脚本，一定要放在，窗口创建的初始目录下]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据库mysql 安装初始化后更改 root 密码]]></title>
     <url>%2F2019%2F10%2F02%2F%E6%95%B0%E6%8D%AE%E5%BA%93mysql-%E5%AE%89%E8%A3%85%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%8E%E6%9B%B4%E6%94%B9-root-%E5%AF%86%E7%A0%81%2F</url>
     <content type="text"><![CDATA[mysql 更改 root 密码 环境 ： windows 10mysql：mysql-8.0.12-winx64 在初始化 mysql 后 启动 sql 服务 准备进入 mysql 发现密码不对，便准备重置初始密码 首先 在配置文件（my.ini）中，将密码验证跳过 打开文件 写入命令 1234之后进入 mysql, 不输入密码，直接回车 &amp;gt;&amp;gt;&amp;gt;&amp;gt; mysql -u root -p 切换到mysql 数据库 &amp;gt;&amp;gt;&amp;gt;&amp;gt; use mysql 然后执行，修改密码&gt;&gt;&gt;ALTER USER &#39;root&#39;@&#39;localhost&#39;IDENTIFIED BY &#39;你的密码&#39; ** 然后注释掉 my.ini 中 刚刚加的 密码跳过 代码，就完成了 **]]></content>
       <categories>
