@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2019%2F10%2F02%2FPython-%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86%2F</url>
-    <content type="text"><![CDATA[title: Python 错误合集date: 2019-10-02 15:11:22toc: truetags: - Python - 问题问题合集categories: - Python Python3字符编码问题 向接口模拟请求时，你可能会收到如下响应 12345import requestsurl = "xxxxx"response = requests.get(url=url)print(response.content)&gt;&gt;&gt; \u4567\u753r5 一般情况，只需要encode编码就行了 123str_content = response.content.encode("utf-8") #或者 gbkprint(str_content)OUT:中文内容 但在Python3 中 你可能会遇到如下情况 1\\u4567\\u753r5 这时我们需要先编码，再解码 123str_content = response.content.encode("utf-8").decode("unicode_escape") print(str_content)&gt;&gt;&gt; 中文内容 字符串匹配 在Windows下 通过 xpath 获取文本内容，返回得到字符串,如： 1https://www.qujiaosuo.pro/ 我需要在找到此链接时，进入站内，达到更多操作，用 基本的判断，并不能成功 12if getstr == "https://www.qujiaosuo.pro/"print("找到链接") 但是匹配一直不成功，多番分析发现问题是 获取的文本字符串末尾 被系统自动追加 ‘\0’ 123456"打印获取的字符串长度"print(len(getstr))&gt;&gt;&gt; 27"打印需要的目标长度"print(len("https://www.qujiaosuo.pro"))&gt;&gt;&gt; 26 所以，只要去掉末尾的 ‘\0’ 就好了,在此对比就可以了 123getstr = getstr[:-1]print(len(getstr))&gt;&gt;&gt; 26 pip错误集合 linux下更新pip时， 出现错误 1234Traceback (most recent call last): File "/usr/bin/pip3", line 9, in &lt;module&gt; from pip import mainImportError: cannot import name 'main' 解决方法： 123# vim /usr/bin/pip (若是pip3，就改为pip3)#将导包改为如下即可：from pip._internal import main]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F10%2F02%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F09%2F29%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[数据库mysql 安装初始化后更改 root 密码]]></title>
+    <url>%2F2019%2F10%2F02%2F%E6%95%B0%E6%8D%AE%E5%BA%93mysql-%E5%AE%89%E8%A3%85%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%8E%E6%9B%B4%E6%94%B9-root-%E5%AF%86%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[mysql 更改 root 密码 环境 ： windows 10mysql：mysql-8.0.12-winx64 在初始化 mysql 后 启动 sql 服务 准备进入 mysql 发现密码不对，便准备重置初始密码 首先 在配置文件（my.ini）中，将密码验证跳过 打开文件 写入命令 1234之后进入 mysql, 不输入密码，直接回车 &amp;gt;&amp;gt;&amp;gt;&amp;gt; mysql -u root -p 切换到mysql 数据库 &amp;gt;&amp;gt;&amp;gt;&amp;gt; use mysql 然后执行，修改密码&gt;&gt;&gt;ALTER USER &#39;root&#39;@&#39;localhost&#39;IDENTIFIED BY &#39;你的密码&#39; ** 然后注释掉 my.ini 中 刚刚加的 密码跳过 代码，就完成了 **]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python 错误合集]]></title>
+    <url>%2F2019%2F10%2F02%2FPython-%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86%2F</url>
+    <content type="text"><![CDATA[Python3字符编码问题 向接口模拟请求时，你可能会收到如下响应 12345import requestsurl = "xxxxx"response = requests.get(url=url)print(response.content)&gt;&gt;&gt; \u4567\u753r5 一般情况，只需要encode编码就行了 123str_content = response.content.encode("utf-8") #或者 gbkprint(str_content)OUT:中文内容 但在Python3 中 你可能会遇到如下情况 1\\u4567\\u753r5 这时我们需要先编码，再解码 123str_content = response.content.encode("utf-8").decode("unicode_escape") print(str_content)&gt;&gt;&gt; 中文内容 字符串匹配 在Windows下 通过 xpath 获取文本内容，返回得到字符串,如： 1https://www.qujiaosuo.pro/ 我需要在找到此链接时，进入站内，达到更多操作，用 基本的判断，并不能成功 12if getstr == "https://www.qujiaosuo.pro/"print("找到链接") 但是匹配一直不成功，多番分析发现问题是 获取的文本字符串末尾 被系统自动追加 ‘\0’ 123456"打印获取的字符串长度"print(len(getstr))&gt;&gt;&gt; 27"打印需要的目标长度"print(len("https://www.qujiaosuo.pro"))&gt;&gt;&gt; 26 所以，只要去掉末尾的 ‘\0’ 就好了,在此对比就可以了 123getstr = getstr[:-1]print(len(getstr))&gt;&gt;&gt; 26 pip错误集合 linux下更新pip时， 出现错误 1234Traceback (most recent call last): File "/usr/bin/pip3", line 9, in &lt;module&gt; from pip import mainImportError: cannot import name 'main' 解决方法： 123# vim /usr/bin/pip (若是pip3，就改为pip3)#将导包改为如下即可：from pip._internal import main]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>问题问题合集</tag>
+      </tags>
   </entry>
 </search>
